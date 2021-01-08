@@ -77,7 +77,7 @@ app.get("/compose", (req, res) => {
 
 app.get("posts/:postID", (req, res) => {
   const reqID = req.params.postID;
-  Post.findOne({ _id: reqID }, (err, foundPost) => {
+  Post.findById({ _id: reqID }, (err, foundPost) => {
     res.render("post", {
       title: foundPost.title,
       paragraph: foundPost.content,
