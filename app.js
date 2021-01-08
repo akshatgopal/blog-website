@@ -16,7 +16,7 @@ const app = express();
 app.set("view engine", "ejs");
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("public"));
+app.use(express.static(__dirname + "/public"));
 
 const url =
   "mongodb+srv://admin-akshat:hello123@cluster0.fl9ev.mongodb.net/blogDB";
@@ -75,7 +75,7 @@ app.get("/compose", (req, res) => {
 //   });
 // });
 
-app.get("posts/:postID", (req, res) => {
+app.get("/:postID", (req, res) => {
   const reqID = req.params.postID;
   Post.findById({ _id: reqID }, (err, foundPost) => {
     res.render("post", {
