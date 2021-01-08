@@ -1,0 +1,14 @@
+<%-include('partials/header')-%>
+
+<h1>Home</h1>
+<p><%= homeStartingContent %></p>
+
+<!-- instead of using for loop use foreach method -->
+
+<% items.forEach((item)=>{ %>
+<h1><%=item.title%></h1>
+<p>
+  <%=item.content.substring(0,100) + "..."%>
+  <a href="/posts/<%= item._id %>">Read More</a>
+</p>
+<% }); %> <%-include('partials/footer')-%>
